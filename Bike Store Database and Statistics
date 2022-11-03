@@ -1,0 +1,15 @@
+--Create a bike store database
+
+CREATE TABLE bikes (id INTEGER PRIMARY KEY, name TEXT, stock INTEGER, ordered INTEGER, sold integer, sale_price integer, cost integer, net integer);
+
+INSERT INTO bikes VALUES(1, "cruiser", 15, 0, 20,150, 100, 50);
+INSERT INTO bikes VALUES(2, "BMX", 10,10,40,150,50,100);
+INSERT INTO bikes VALUES(3, "ten_speed", 5,2,7,100,75,25);
+INSERT INTO bikes VALUES(4, "mountain", 7,5,30,150,100,50);
+SELECT * FROM bikes;
+
+--display total number bikes sold
+SELECT sum(sold) FROM bikes;
+
+--display bike inventory by sale price
+SELECT * FROM bikes ORDER BY sale_price;
