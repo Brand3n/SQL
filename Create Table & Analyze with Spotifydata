@@ -54,7 +54,9 @@ Order BY popular desc;
 
 --Rank the artists by consistent popularity?
 
-SELECT artist_name, sum(popularity)/count(artist_name) AS Avg_pop 
+SELECT artist_name, 
+  count(artist_name) AS entries, 
+  sum(popularity)/count(artist_name) AS Avg_pop 
 FROM BIT_DB.Spotifydata
 GROUP BY artist_name 
 ORDER BY Avg_pop desc;
