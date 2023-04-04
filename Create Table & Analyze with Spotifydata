@@ -52,7 +52,7 @@ SELECT artist_name, sum(popularity) popular FROM BIT_DB.Spotifydata
 GROUP BY artist_name
 Order BY popular desc;
 
---Rank the artists by consistent popularity?
+-- List top rate artists with average popularity and quantity of songs included in assessment?
 
 SELECT artist_name, 
   count(artist_name) AS entries, 
@@ -60,3 +60,17 @@ SELECT artist_name,
 FROM BIT_DB.Spotifydata
 GROUP BY artist_name 
 ORDER BY Avg_pop desc;
+
+--Calculate the average popularity for the artists in the Spotify data table. 
+--Then, for every artist with an average popularity of 90 or above, show their name, 
+--their average popularity, and label them as a “Top Star”.
+
+WITH tempTable AS (
+SELECT artist_name, avg(popularity) AS Avg_Popularity
+FROM Spotifydata
+GROUP BY artist_name
+)
+SELECT artist_name, Avg_Popularity, 'Top Star' AS tag
+FROM tempTable 
+WHERE Avg_Popularity >= 90
+ORDER BY Avg_Popularity desc;
