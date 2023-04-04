@@ -52,7 +52,7 @@ SELECT artist_name, sum(popularity) popular FROM BIT_DB.Spotifydata
 GROUP BY artist_name
 Order BY popular desc;
 
--- List top rate artists with average popularity and quantity of songs included in assessment?
+-- List all artists having the highest average popularity and quantity of songs included in average assessment?
 
 SELECT artist_name, 
   count(artist_name) AS entries, 
